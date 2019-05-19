@@ -1,41 +1,78 @@
 package practica6;
 
 public class Coche {
+	private static final String COCHE_MATRICULA = "El coche con matricula ";
 	String matricula;
-	String atrib;
+	String combustible;
 	String modelo;
 	String fabricante;
 
 	public Coche() {
 		matricula = "";
-		atrib = "";
+		combustible = "";
 		modelo = "";
 		fabricante = "";
 	}
 
 	public Coche(String m, String c, String mo, String f) {
 		matricula = m;
-		atrib = c;
+		combustible = c;
 		modelo = mo;
 		fabricante = f;
 	}
-	// Prueba
 
-	public String metodo1() {
+	public String metodo1()
+	{
 		String resultado = "";
-		if (atrib == "Gasolina") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoA(modelo, fabricante);
-		} else if (atrib == "Diesel") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoB(modelo, fabricante);
-		} else if (atrib == "Híbrido") {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoC(modelo, fabricante);
-		} else {
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += "no dispone de información";
+		
+		switch (combustible)
+		{
+		case "Gasolina":
+			resultado += cocheMatricula() + metodoA(modelo, fabricante);
+			break;
+			
+		case "Diesel":
+			resultado += cocheMatricula() + metodoB(modelo, fabricante);
+			break;
+			
+		case "Híbrido":
+			resultado += cocheMatricula() + metodoC(modelo, fabricante);
+			break;
+			
+		default:
+			resultado += cocheMatricula() + " no dispone de información";
+			break;
 		}
 		return resultado;
+	}
+	
+	public String metodoA(String modelo, String fabricante)
+	{
+		modelo = "Corsa";
+		fabricante = "Opel";
+		return coche(modelo, fabricante) + "y gasta 1,337 euros por litro.";
+	}
+
+	public String metodoB(String modelo, String fabricante)
+	{
+		modelo = "Seat";
+		fabricante = "Ibiza";
+		return coche(modelo, fabricante) + "y gasta 1,052 euros por litro.";
+	}
+	
+	public String metodoC(String modelo, String fabricante)
+	{
+		modelo = "Hyundai";
+		fabricante = "Getz";
+		return coche(modelo, fabricante) + "y no necesita combustible.";
+	}
+	
+	private String cocheMatricula() {
+		return COCHE_MATRICULA + matricula + " ";
+	}
+	
+	private String coche(String modelo, String fabricante) {
+		String coche = "Es un " + fabricante + " " + modelo;
+		return coche;
 	}
 }
