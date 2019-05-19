@@ -19,6 +19,7 @@ public class Coche {
 		modelo = mo;
 		fabricante = f;
 	}
+	// Prueba
 
 	public String metodo1() {
 		String resultado = "";
