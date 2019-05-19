@@ -52,7 +52,7 @@ public class Coche {
 		fabricante = "Opel";
 		return coche(modelo, fabricante) + "y gasta 1,337 euros por litro.";
 	}
-
+	
 	public String metodoB(String modelo, String fabricante)
 	{
 		modelo = "Seat";
@@ -66,13 +66,11 @@ public class Coche {
 		fabricante = "Getz";
 		return coche(modelo, fabricante) + "y no necesita combustible.";
 	}
-	
 	private String cocheMatricula() {
 		return COCHE_MATRICULA + matricula + " ";
 	}
 	
 	private String coche(String modelo, String fabricante) {
-		String coche = "Es un " + fabricante + " " + modelo;
-		return coche;
+		return "Es un " + fabricante + " " + modelo;
 	}
 }
